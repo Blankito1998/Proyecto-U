@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en",>
+    <head>
+        <meta charset="UTF-8">
+        <title>Productos</title>
+
+        <link rel="stylesheet" href="{% static 'css/EstilosProductos.css' %}">
+        <link type="text/css" rel="stylesheet" href="{% static 'css/linksiluminados.css' %}">
+    </head>
+    <body bgcolor="pink">
+        <header>
+            <cemter><h1>Productos de Maquillaje</h1></cemter>
+          </header>
+          <nav>
+              <ul>
+                    <a href="index.html"style="color:#AF7AC5;" >Volver al Menu Principal</a>
+              </ul>
+            </nav>
+      {% for c in object_list %}
+
+                
+                
+                
+       
+          <blockquote>Nombre: {{ c.nombre }}</blockquote>
+          <blockquote>Precio: ${{ c.precio }}</blockquote>
+          <blockquote>Stock: {{ c.stock }}</blockquote>
+          <img src="{{MEDIA_URL}}{{c.foto.url }}" /> <br>
+       
+       
+                
+                
+                 
+                
+
+                  
+      {% endfor %}    
+    </body>
+</html>

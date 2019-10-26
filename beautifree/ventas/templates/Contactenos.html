@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+{% load static %}
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}"  media="screen,projection"/>
+	  <link type="text/css" rel="stylesheet" href="{% static 'css/linksiluminados.css' %}" media="screen,projection"/>
+
+      
+
+	  <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	  
+	  <title>Contactenos</title>
+	  
+	  <script>
+	    function Saludo(){
+		     var correo = document.getElementById("correo").value;
+                     var mensaje = document.getElementById("Mensaje").value;
+                        if(correo!="" && mensaje!=""){
+			 alert("Gracias por Contactarnos "+ correo);}
+		}
+		
+	  </script>
+    </head>
+
+    <body bgColor="pink">
+	<style>
+body {
+ font-family: 'Dekko';font-size: 22px;
+}
+</style>
+	    
+		<form method="POST" class="post-form">
+		<div class="row">
+		 <div class="input-field col s1">
+		 </div>
+		 <div class="input-field col s10">
+		   <h1> <p style="color:#FF33FF;"> Contactenos </h1>
+		 </div>
+		 <div class="input-field col s1">
+		 </div>
+		 </div>
+		 <div class="row">
+		 <div class="input-field col s4">
+		 </div>
+		 <div class="input-field col s4">
+		   <h3> <p style="color:#9900FF;"> Ante cualquier duda Consulta</h3><img src="{% static 'img/b.gif' %}">
+           
+		 </div>
+		 <div class="input-field col s4">
+		  
+		 </div>
+		 </div>
+		 {% csrf_token %}
+		 {{ form.as_p }}
+		 <div class="row">
+		 <div class="input-field col s4">
+		 
+		 </div>
+		 <div class="input-field col s4">
+			<button type="submit" class="save btn btn-default">Enviar</button>
+		   <h3> WhatsApp +56952330813   <a href="index.html" style="color:#AF7AC5;" >Volver al Menu Principal</a> </h3>
+		 </div>
+		 
+		 </div>
+		 
+		  
+		</form>
+	
+	
+	
+
+      <!--JavaScript at end of body for optimized loading-->
+      <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+	  
+    </body>
+  </html>

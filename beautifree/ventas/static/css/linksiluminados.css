@@ -1,0 +1,26 @@
+@import url(https://fonts.googleapis.com/css?family=Armata);
+html {
+	font-size: 100%;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+
+a:focus {
+	outline: thin dotted;
+}
+a:hover, a:active {
+	outline: 0;
+}
+body {
+}
+a, a:visited, a:active {
+	text-decoration: none;
+	color: pink;
+}
+a:hover, .glow {
+	color: pink;
+	text-shadow: 0 0 10px #FF00FF;
+}
+
+
