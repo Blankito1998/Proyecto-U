@@ -35,17 +35,40 @@ body {
  font-family: 'Dekko';font-size: 22px;
 }
 </style>
-	    <nav>
-			<ul>
-				<li>Bienvenido {{request.user.username}}</li>
+	    <nav class="nav-wrapper" >
+			
+
+				<a href="#" data-target="menu-responsive" class="sidenav-trigger">
+					<i class="material-icons">menu</i>
+				</a>
+
+				<ul class="left hide-on-med-and-down">
+						<li>Bienvenid@ {{request.user.username}}</li>
+				</ul>
+				<ul class="right hide-on-med-and-down">
+			
 				<li><a href="Contactenos.html" style="color:white;">Contáctenos</a></li>
 				<li><a href="QuienesSomos.html"style="color:white;">Quiénes Somos</a></li>
 				<li><a href="Mision&Vision.html"style="color:white;">Misión y Visión</a></li>
 				<li><a href="/logout" style="color:black;">Cerrar sesión</a></li>
-				
-				
-			</ul>
+					
+						
+				</ul>
+			
+			
 		</nav>
+		<div style="color:purple" background-color="pink">
+				<ul class="sidenav" id="menu-responsive">
+						<li>Bienvenid@ {{request.user.username}}</li>
+						<li><a href="Contactenos.html" style="color:black;">Contáctenos</a></li>
+						<li><a href="QuienesSomos.html"style="color:black;">Quiénes Somos</a></li>
+						<li><a href="Mision&Vision.html"style="color:black;">Misión y Visión</a></li>
+						<li><a href="/logout" style="color:black;">Cerrar sesión</a></li>
+					
+				</ul>
+		</div>
+
+		
 		
 		<form>
 				<div class="row">
@@ -108,6 +131,12 @@ body {
         });
 	  </script>
 	  
+	  <script>
+	  document.addEventListener('DOMContentLoaded', function(){
+		  M.AutoInit();
+	  });
+	  </script>
+
 	  <script>
 	  $('.carousel').carousel({
     padding: 200    
