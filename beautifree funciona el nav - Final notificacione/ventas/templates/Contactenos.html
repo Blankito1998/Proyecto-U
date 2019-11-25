@@ -1,7 +1,9 @@
 <!DOCTYPE html>
+{% load pwa %}
 {% load static %}
   <html>
     <head>
+			{% progressive_web_app_meta %}
       <!--Import Google Icon Font-->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
@@ -26,7 +28,7 @@
 	  </script>
     </head>
 
-    <body bgColor="pink">
+    <body bgColor="pink"  onload="miFuncion();"> 
 	<style>
 body {
  font-family: 'Dekko';font-size: 22px;
@@ -76,5 +78,26 @@ body {
       <!--JavaScript at end of body for optimized loading-->
       <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
 	  
+	  <script>
+			function miFuncion() {
+				console.log("WSAD: " + navigator.onLine);
+					if (navigator.onLine == false) {
+						console.log("offline");
+						if (Notification.permission === "granted") {
+							navigator.serviceWorker.getRegistration()
+								.then(function (reg) {
+									var opciones = {
+										body: 'CONTÁCTENOS se encuetra en modo offline',
+										vibrate: [100, 50, 100]
+									}
+									reg.showNotification('Modo Offline. HOLA!', opciones);
+								});
+						}
+					}
+					else{
+						console.log("online");
+					}
+				}
+		</script>
     </body>
   </html>

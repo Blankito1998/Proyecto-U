@@ -1,14 +1,16 @@
 <!DOCTYPE html>
+{% load pwa %}
 {% load static %}
 <html lang="en",>
     <head>
+            {% progressive_web_app_meta %}
         <meta charset="UTF-8">
         <title>Productos</title>
 
         <link rel="stylesheet" href="{% static 'css/EstilosProductos.css' %}">
         <link type="text/css" rel="stylesheet" href="{% static 'css/linksiluminados.css' %}">
     </head>
-    <body bgcolor="pink">
+    <body bgcolor="pink" onload="miFuncion();">
         <header>
             <cemter><h1>Productos de Maquillaje</h1></cemter>
           </header>
@@ -28,13 +30,30 @@
           <blockquote>Stock: {{ c.stock }}</blockquote>
           <img src="{{MEDIA_URL}}{{c.foto.url }}" /> <br>
        
-       
-                
-                
-                 
-                
-
-                  
-      {% endfor %}    
+   {% endfor %}   
+    
+   <script>
+		function miFuncion() {
+			console.log("WSAD: " + navigator.onLine);
+				if (navigator.onLine == false) {
+					console.log("offline");
+					if (Notification.permission === "granted") {
+						navigator.serviceWorker.getRegistration()
+							.then(function (reg) {
+								var opciones = {
+									body: 'La página PRODUCTOS se encuetra en modo offline',
+									vibrate: [100, 50, 100]
+								}
+								reg.showNotification('Modo Offline', opciones);
+							});
+					}
+				}
+				else{
+					console.log("online");
+				}
+			}
+	</script>
+    
+    
     </body>
 </html>

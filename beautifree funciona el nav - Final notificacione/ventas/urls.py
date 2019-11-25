@@ -19,6 +19,7 @@ urlpatterns = [
     path('password_reset_email.html', views.pass_reset3, name='pass_reset3'),
     path('password_reset_confirm', views.pass_reset4, name='pass_reset4'),
     path('password_reset_complete', views.pass_reset5, name='pass_reset5'),
+    path('sw.js',views.ver_index,name='sw'),
 
     
 ]
